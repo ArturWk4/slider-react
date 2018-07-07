@@ -2,47 +2,55 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
 import styled from 'styled-components';
+
+import Main from './components/Main';
+import Menu from './components/Menu';
+import Header from './components/Header';
+
+const url = process.env.PUBLIC_URL + '/img/bg.jpg';
+const HeaderWrapper = styled.header`
+	width: 100%;
+	height: 49px;
+	background-color: #242424;
+	opacity: 0.8;
+`
+const MenuWrapper = styled.div`
+	height: 89px;
+	padding-top: 20px;
+`
+
+const MainWrapper = styled.main`
+	height: 600px;
+	padding-top: 130px;
+	background: url(${url}) no-repeat;
+	backgroundSize: cover;
+`
 class App extends Component {
-  render() {
-    return (
-      <div className="wrapper">
-         <SayFullName name="Artur" surname="Elkin" link="vk.com/workout_ka4er"/>
-         <SayFullName name="Someone" surname="Any surname" link="vk.com/japancar_club"/>
-         <SayFullName name="Bla" surname="Blabla" link="#"/>
-      </div>
-    );
-  }
+	render() {
+		return (
+				<div className="App">
+					<HeaderWrapper>
+						<Grid>
+							<Header />
+						</Grid>
+					</HeaderWrapper>
+					<MenuWrapper>
+						<Grid>
+							<Menu />
+						</Grid>
+					</MenuWrapper>
+					<MainWrapper>
+						<Grid>
+							<Main />
+						</Grid>
+					</MainWrapper>
+						
+				</div>
+		)
+	}
 }
 
-function Hello () { 
-  return (
-        <h1> Hello  </h1>
-    )
-}
 
-function SayFullName(info) {
-  return (
-        <div>
-          <h1>Мое имя: {info.name}</h1>
-          <h1> Фамилия : {info.surname} </h1>
-          <a href={info.link}>Мой профиль ВК</a>
-        </div>
-    )
-}
-const element = <SayFullName name="Artur" surname="Elkin" link="vk.com/workout_ka4er"/>;
-
-
-function AllNames() {
-  return (
-      <div>
-         <SayFullName name="Artur" surname="Elkin" link="vk.com/workout_ka4er"/>
-         <SayFullName name="Someone" surname="Any surname" link="vk.com/japancar_club"/>
-         <SayFullName name="Bla" surname="Blabla" link="#"/>
-      </div>
-    )
-}
 
 export default App;

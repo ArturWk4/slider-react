@@ -31,15 +31,15 @@ class Slider extends React.Component {
 		} 
 		this.state.max = this.state.slides.length;
 		this.intervalBetweenSlides = this.intervalBetweenSlides.bind(this);
-		this.toggleAutoPlay = this.toggleAutoPlay.bind(this);
+		this.toggleAutoplay = this.toggleAutoplay.bind(this);
 		this.nextOne = this.nextOne.bind(this);
 		this.prevOne = this.prevOne.bind(this);
 	}
 
-	componensDidMount() {
-		this.interval = setInterval(() => this.intervalBetweenSlides(), 3000);
+	componentDidMount() {
+		this.interval = setInterval(() => this.intervalBetweenSlides(), 2500);
 	}
-	componentWillUnMount() {
+	componentWillUnmount() {
 		clearInterval(this.interval);
 	}
 	intervalBetweenSlides() {
@@ -55,7 +55,7 @@ class Slider extends React.Component {
 		}
 	}
 
-	toggleAutoPlay() {
+	toggleAutoplay() {
 		this.setState({
 			autoplay: !this.state.autoplay
 		})
@@ -175,7 +175,7 @@ class Slider extends React.Component {
 
 					<a
 						className="toggle-play"
-						onClick={this.toggleAutoPlay}>
+						onClick={this.toggleAutoplay}>
 							{this.renderPlayStop()}
 					</a>
 				</div>
